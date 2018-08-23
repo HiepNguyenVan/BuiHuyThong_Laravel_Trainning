@@ -1,5 +1,4 @@
-{!! $name !!}
+<?php
 
-{!! $title !!}
-
-{!! $thongtin !!}
+    echo "<pre>";
+    print_r($data);
