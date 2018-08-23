@@ -110,3 +110,12 @@ Route::get('responsive/view',function(){
 
     return response()->view('test',$data,200)->header('Content-Type', $type);
 });
+
+Route::get('session/basic',function($request){
+    $request->session()->put('abc', 'abcdef');
+
+    $data   =   $request->session()->all();
+
+    echo "<pre>";
+    print_r($data);
+});
