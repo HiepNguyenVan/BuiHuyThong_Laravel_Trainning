@@ -3,6 +3,7 @@
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
+                {!! $thongtin !!}
             @endforeach
         </ul>
     </div>
