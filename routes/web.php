@@ -85,3 +85,28 @@ View::composer('test',function($view){
 Route::get('get-view',function(){
     return view ('err');
 });
+
+//RESPONSIVE
+
+Route::get('responsive/basic',function(){
+    return 'Đây là responsive cơ bản';
+});
+
+Route::get('responsive/json',function(){
+    $data   =   array(
+        'id'    => 1,
+        'name'  => 'hello world'
+    );
+   return response()->json($data);
+
+});
+
+Route::get('responsive/view',function(){
+
+    $data   =   array(
+        'id'    => 1,
+        'name'  => 'hello world'
+    );
+
+    return response()->view('test',$data,200)->header('Content-Type', $type);
+});
