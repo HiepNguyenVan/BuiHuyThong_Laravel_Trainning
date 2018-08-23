@@ -68,3 +68,20 @@ Route::get('hoc-sinh',function(){
 });
 
 Route::post('hoc-sinh','HocSinhController@index')->name('createHocSinh');
+
+//2.Lam viec voi view
+
+Route::get('test-view',function(){
+    $name   =   'VNEXT';
+    return view('test',compact('name'));
+});
+
+View::share('title','On tap laravel');
+
+View::composer('test',function($view){
+    return $view->with('thongtin','Toi la bui huy thong');
+});
+
+Route::get('get-view',function(){
+    return view ('err');
+});
