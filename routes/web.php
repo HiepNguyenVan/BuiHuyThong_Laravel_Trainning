@@ -57,3 +57,14 @@ View::Share('title','Title 01');
 
 //Route-resource
 Route::resource('hocsinh','HocSinhController');
+
+#------------------------------------------------BUOI 2---------------------------------------------------------#
+
+//Route-call-view-hocsinh
+
+//1 . Lam viec với resquest và validate
+Route::get('hoc-sinh',function(){
+    return view('hocsinh');
+});
+
+Route::post('hoc-sinh','HocSinhController@index')->name('createHocSinh');
