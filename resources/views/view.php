@@ -1,0 +1,1 @@
+Day la trang view <?php echo $hoten;echo $view ?>
