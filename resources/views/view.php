@@ -1,2 +1,1 @@
-<?php
-    echo "Chao ban , Day la trang view {$hoten}";
+Day la trang view <?php echo $hoten;echo $view ?>

@@ -7,23 +7,27 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
-    <table>
+    <table border=1>
+    <?php
+        echo $thongtin;
+    ?>
         <tr>
             <td>STT</td>
             <td>Ten Mon Hoc</td>
         </tr>
         <tr>
             <td>1</td>
-            <td>Lap trinh laravel</td>
+            <td>lap trinh laravel</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>Lap trinh androi</td>
+            <td>Lap trinh IOS swift</td>
         </tr>
         <tr>
             <td>3</td>
             <td>Lap trinh php</td>
         </tr>
+        
     </table>
 </body>
 </html>
