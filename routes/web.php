@@ -112,7 +112,7 @@ Route::get('responsive/view',function(){
 });
 
 #-----------------------------------BUOI 3------------------------------------------------------------------------#
-<?php
+
 
 /*
 |--------------------------------------------------------------------------
@@ -373,3 +373,6 @@ Route::get('query/update',function(){
 Route::get('query/delete',function(){
     DB::table('product')->where('id',2)->delete();
 });
+
+
+Route::get('select-product','NewController@selectProduct');
