@@ -376,3 +376,92 @@ Route::get('query/delete',function(){
 
 
 Route::get('select-product','NewController@selectProduct');
+
+Route::get('model/select-all',function(){
+    $data   =   App\product::all()->tojSon();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+});
+
+Route::get('model/select-id',function(){
+    $data   =   App\product::find(1)->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+});
+
+Route::get('model/where',function(){
+    $data   =   App\product::where('gia','>',100000)->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+
+    
+});
+
+Route::get('model/take',function(){
+    $data   =   App\product::where('gia','>',100000)->select('name')->take(2)->get()->toArray();
+   //$data   =   DB::table('product')->offset(0)->take(2)->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+
+    
+});
+
+Route::get('model/count',function () {
+    $data   =   App\product::all()->count();
+    echo $data;
+});
+
+
+Route::get('model/whereRaw',function(){
+    $data   =   App\product::whereRaw('gia = ?',[200000])->get()->toArray();
+   //$data   =   DB::table('product')->offset(0)->take(2)->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+
+    
+});
+
+Route::get('model/insert',function () {
+    $product            = new App\Product;
+    $product->name      = 'tui xach 1';
+    $product->gia       = 450000;
+    $product->cate_id   =   2;
+    $product->save();
+});
+
+Route::get('model/create',function() {
+    App\Product::create(['name'=>'tui xach 10','gia'=>'230000' ,'cate_id'=>'2']);
+});
+
+Route::get('model/delete',function () {
+    $data   =   App\Product::where('id','=',3);
+    $data->delete();
+});
+
+Route::get('model/update',function () {
+    $data   =   App\Product::find(4);
+    $data->name ='Tui xach hoi xin';
+    $data->save();
+   
+});
+
+Route::get('relation/one-many',function(){
+    $data   =   App\Product::find(1)->images()->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+});
+
+Route::get('relation/one-many-one',function(){
+    $data   =   App\images::find(7)->product()->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+});
+
+Route::get('show-pagination','ProductController@index');
